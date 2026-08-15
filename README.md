@@ -9,7 +9,6 @@ Thailand's 20 leading hospitals hold 2 million patient records in siloed EHRs â€
 ```mermaid
 flowchart LR
     S3[S3 Data Landing] --> SP[Snowpipe]
-    SP --> RAW[RAW Tables]
     RAW --> DT[Dynamic Tables]
     DT --> ML[ML Functions]
     DT --> SEARCH[Cortex Search]
