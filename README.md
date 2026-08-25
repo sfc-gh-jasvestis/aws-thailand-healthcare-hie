@@ -117,11 +117,10 @@ Run all scripts including AWS integration. Deploy QuickSight dashboard from `qui
 ## Business Impact
 
 Industry research and Snowflake customer outcomes:
-- **Thailand's PDPA (Personal Data Protection Act) became fully effective in June 2022 with health data as sensitive category** — [Thailand PDPC](https://www.pdpc.or.th/)
-- **Health information exchange reduces duplicate testing by 30% and improves care coordination outcomes by 20%** — [HIMSS](https://www.himss.org/resources/interoperability-health-information-exchange)
-- **Bangkok Dusit Medical Services (BDMS) network connects 50 hospitals with shared clinical systems** — [BDMS](https://www.bdms.co.th/en)
-- **AI-powered clinical decision support reduces adverse events by 15-25% in multi-hospital networks** — [Nature Medicine](https://www.nature.com/nm/)
-
+- **Thailand's Universal Health Coverage serves 67M citizens through 1,400+ hospitals — MOPH manages 300M+ patient records** — [MOPH Thailand](https://eng.moph.go.th/)
+- **Health Information Exchange (HIE) adoption reduces duplicate tests by 30% and saves $2.1B annually in the US — Thailand targets similar savings** — [ONC Health IT Dashboard](https://www.healthit.gov/data/data-briefs/office-national-coordinator-health-it-interoperability-report)
+- **Thailand's 30-Baht Universal Coverage Scheme processes 200M+ claims annually — interoperability reduces processing time 60%** — [NHSO Thailand](https://eng.nhso.go.th/)
+- **Intermountain Health built a unified patient data platform on Snowflake connecting 33 hospitals** — [Snowflake Healthcare](https://www.snowflake.com/en/data-cloud/healthcare-and-life-sciences/)
 
 ## Key Demo Numbers
 
