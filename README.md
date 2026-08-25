@@ -117,9 +117,9 @@ Run all scripts including AWS integration. Deploy QuickSight dashboard from `qui
 ## Business Impact
 
 Industry research and Snowflake customer outcomes:
-- **Thailand's Universal Health Coverage serves 67M citizens through 1,400+ hospitals — MOPH manages 300M+ patient records** — [MOPH Thailand](https://eng.moph.go.th/)
-- **Health Information Exchange (HIE) adoption reduces duplicate tests by 30% and saves $2.1B annually in the US — Thailand targets similar savings** — [ONC Health IT Dashboard](https://www.healthit.gov/data/data-briefs/office-national-coordinator-health-it-interoperability-report)
-- **Thailand's 30-Baht Universal Coverage Scheme processes 200M+ claims annually — interoperability reduces processing time 60%** — [NHSO Thailand](https://eng.nhso.go.th/)
+- **Thailand's Universal Health Coverage serves 67M citizens through 1,400+ hospitals — MOPH manages 300M+ patient records** — [MOPH Thailand](https://www.moph.go.th/)
+- **Health Information Exchange (HIE) adoption reduces duplicate tests by 30% and saves $2.1B annually in the US — Thailand targets similar savings** — [ONC Health IT Dashboard](https://www.healthit.gov/topic/interoperability)
+- **Thailand's 30-Baht Universal Coverage Scheme processes 200M+ claims annually — interoperability reduces processing time 60%** — [NHSO Thailand](https://www.nhso.go.th/)
 - **Intermountain Health built a unified patient data platform on Snowflake connecting 33 hospitals** — [Snowflake Healthcare](https://www.snowflake.com/en/data-cloud/healthcare-and-life-sciences/)
 
 ## Key Demo Numbers
