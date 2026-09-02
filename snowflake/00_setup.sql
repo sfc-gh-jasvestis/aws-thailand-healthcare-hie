@@ -1,16 +1,13 @@
--- ============================================================================
--- Clinical Data Exchange
--- Secure clinical data exchange across 20 Thai hospitals — Iceberg + Lake Formation governs access, Row Access Policies enforce patient consent, and Cortex Complete generates clinical insights while preserving PDPA compliance.
--- ============================================================================
-USE ROLE ACCOUNTADMIN;
-CREATE DATABASE IF NOT EXISTS CLINICAL_HIE;
-CREATE WAREHOUSE IF NOT EXISTS HIE_WH WAREHOUSE_SIZE = 'MEDIUM' AUTO_SUSPEND = 120 AUTO_RESUME = TRUE;
-USE DATABASE CLINICAL_HIE;
-CREATE SCHEMA IF NOT EXISTS RAW;
-CREATE SCHEMA IF NOT EXISTS CURATED;
-CREATE SCHEMA IF NOT EXISTS ML;
-CREATE SCHEMA IF NOT EXISTS AI;
-CREATE SCHEMA IF NOT EXISTS SEARCH;
-CREATE SCHEMA IF NOT EXISTS APP;
+-- Generated from generator/demo_specs/aws-thailand-healthcare-hie.json
+-- Regenerate with: python3 generator/gen_repo_docs.py aws-thailand-healthcare-hie
+-- This is the schema that is actually deployed for THAILAND_HEALTHCARE_HIE.
 
-USE WAREHOUSE HIE_WH;
+-- THAILAND_HEALTHCARE_HIE  (Clinical Data Exchange)
+-- generated from generator/demo_specs/aws-thailand-healthcare-hie.json - do not hand-edit
+CREATE DATABASE IF NOT EXISTS THAILAND_HEALTHCARE_HIE;
+CREATE SCHEMA IF NOT EXISTS THAILAND_HEALTHCARE_HIE.RAW;
+CREATE SCHEMA IF NOT EXISTS THAILAND_HEALTHCARE_HIE.CURATED;
+CREATE SCHEMA IF NOT EXISTS THAILAND_HEALTHCARE_HIE.APP;
+USE DATABASE THAILAND_HEALTHCARE_HIE;
+
+-- 5 real regions; entity names carry their region so the two always agree
