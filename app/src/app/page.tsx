@@ -32,15 +32,22 @@ export default function HomePage() {
       .catch(() => {});
   }, []);
 
+
+  // KPI values come from /api/data, which reads CURATED.KPI_SUMMARY. The literal
+  // stays as a fallback so the card still renders if the API is unavailable.
+  const kpiVal = (title: string, fallback: string): string =>
+    (data?.kpiCards as { title: string; value: string }[] | undefined)
+      ?.find((k) => k.title === title)?.value ?? fallback;
+
   const title = narrative?.title || 'SEA AWS Demo';
 
   const executiveCockpit = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <KPICard title="Records Exchanged (MTD)" value="2.4M" status="neutral" />
-        <KPICard title="Consent Coverage" value="89%" status="warning" />
-        <KPICard title="Integration Errors" value="0.02%" status="neutral" />
-        <KPICard title="Connected Facilities" value="347" status="neutral" />
+        <KPICard title="Records Exchanged (MTD)" value={kpiVal('Records Exchanged (MTD)', '2.4M')} status="neutral" />
+        <KPICard title="Consent Coverage" value={kpiVal('Consent Coverage', '89%')} status="warning" />
+        <KPICard title="Integration Errors" value={kpiVal('Integration Errors', '0.02%')} status="neutral" />
+        <KPICard title="Connected Facilities" value={kpiVal('Connected Facilities', '347')} status="neutral" />
       </div>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="lg:col-span-1">
@@ -87,9 +94,9 @@ export default function HomePage() {
   const domainTab1 = (
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <KPICard title="Record Completeness" value="94.7%" />
-        <KPICard title="Duplicate Rate" value="1.2%" />
-        <KPICard title="Avg Response Time" value="340ms" />
+        <KPICard title="Record Completeness" value={kpiVal('Record Completeness', '94.7%')} />
+        <KPICard title="Duplicate Rate" value={kpiVal('Duplicate Rate', '1.2%')} />
+        <KPICard title="Avg Response Time" value={kpiVal('Avg Response Time', '340ms')} />
       </div>
       <Chart
         data={data?.detail || [{ x: 'Mon', y: 24 }, { x: 'Tue', y: 28 }, { x: 'Wed', y: 22 }, { x: 'Thu', y: 31 }, { x: 'Fri', y: 26 }, { x: 'Sat', y: 19 }, { x: 'Sun', y: 23 }]}
