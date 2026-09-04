@@ -53,6 +53,7 @@ export default function HomePage() {
         <div className="lg:col-span-1">
           <GeoMap
             country="thailand"
+            labels={{ entity: 'Facilities', event: 'Lab Results', alert: 'Consent Gaps' }}
             regions={data?.regions}
             markers={[{"label": "Bangkok", "value": "124 facilities connected", "color": "green", "size": "lg"}, {"label": "Chiang Mai", "value": "34 facilities", "color": "green", "size": "md"}, {"label": "Khon Kaen", "value": "28 facilities", "color": "amber", "size": "md"}, {"label": "Phuket", "value": "12 facilities", "color": "green", "size": "sm"}]}
             routes={[]}
@@ -83,8 +84,13 @@ export default function HomePage() {
         columns={[
           { key: 'id', header: '#' },
           { key: 'name', header: 'Facility' },
+          { key: 'region', header: 'Region' },
           { key: 'status', header: 'Status' },
-          { key: 'value', header: 'Records/Day' },
+          { key: 'm1', header: 'Records/Day' },
+          { key: 'm2', header: 'Record Completeness' },
+          { key: 'm3', header: 'Response Time' },
+          { key: 'events', header: 'Lab Results' },
+          { key: 'alerts', header: 'Consent Gaps' },
         ]}
         data={data?.entities || []}
         title="Facility Integration Status"
