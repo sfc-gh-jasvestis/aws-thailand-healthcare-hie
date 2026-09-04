@@ -53,6 +53,7 @@ export default function HomePage() {
         <div className="lg:col-span-1">
           <GeoMap
             country="thailand"
+            regions={data?.regions}
             markers={[{"label": "Bangkok", "value": "124 facilities connected", "color": "green", "size": "lg"}, {"label": "Chiang Mai", "value": "34 facilities", "color": "green", "size": "md"}, {"label": "Khon Kaen", "value": "28 facilities", "color": "amber", "size": "md"}, {"label": "Phuket", "value": "12 facilities", "color": "green", "size": "sm"}]}
             routes={[]}
             title="Geographic Overview"
@@ -69,7 +70,7 @@ export default function HomePage() {
           title="Health Record Exchange Volume (Daily)"
         />
         <Chart
-          data={data?.categories || [{ category: 'North', count: 82 }, { category: 'Central', count: 74 }, { category: 'South', count: 91 }, { category: 'Highland', count: 68 }, { category: 'Coastal', count: 77 }]}
+          data={data?.categoryMetric || [{ category: 'North', count: 82 }, { category: 'Central', count: 74 }, { category: 'South', count: 91 }, { category: 'Highland', count: 68 }, { category: 'Coastal', count: 77 }]}
           type="bar"
           xKey="category"
           yKeys={[{ key: 'count', name: 'Count' }]}
@@ -113,7 +114,7 @@ export default function HomePage() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <Chart
-          data={data?.breakdown || [{ label: 'Zone North', value: 35 }, { label: 'Zone Central', value: 28 }, { label: 'Zone South', value: 22 }, { label: 'Zone East', value: 15 }]}
+          data={data?.regionAlerts || [{ label: 'Zone North', value: 35 }, { label: 'Zone Central', value: 28 }, { label: 'Zone South', value: 22 }, { label: 'Zone East', value: 15 }]}
           type="pie"
           xKey="label"
           yKeys={[{ key: 'value', name: 'Coverage %' }]}
