@@ -1,0 +1,142 @@
+{
+  "title": "Thailand Provincial HIE Feed Operations",
+  "duration": "6 minutes",
+  "thesis": "A fictional provincial health information exchange in Thailand receives FHIR bundles from 40 facilities in Bangkok, Chiang Mai, Khon Kaen, Hat Yai and Phuket. Snowflake turns that facility-level feed activity into completeness and data quality KPIs, 7-day interface incident risk, unmapped code anomalies and cited AI answers, with no patient data.",
+  "tabs": [
+    {
+      "id": "executive-cockpit",
+      "persona": {
+        "name": "Napat Srisuk",
+        "role": "Head of Exchange Integration (fictional)",
+        "avatar": ""
+      },
+      "talking_points": [
+        "Start with the exchange as a whole: feed completeness, accepted bundles, rejection rate and interface incidents for 40 facilities in 5 Thai cities.",
+        "Each card is a numerator over a denominator in a curated dynamic table; run_core.py recomputes them from RAW on every build.",
+        "The issue-type chart separates the data quality issues that become interface incidents from those closed without escalation, such as the two city-wide network outages."
+      ],
+      "show": [
+        "KPI cards",
+        "Daily issues and incidents",
+        "Issues by type",
+        "Facility table with city"
+      ],
+      "call_out": "One set of exchange KPIs that traces back to facility-day rows",
+      "transition": {
+        "next_tab": "predictive",
+        "line": "Which facilities should the interface team call first this week?"
+      }
+    },
+    {
+      "id": "predictive",
+      "persona": {
+        "name": "Pimchanok Wongsa",
+        "role": "Interface Operations Lead (fictional)",
+        "avatar": ""
+      },
+      "talking_points": [
+        "Snowflake ML classification gives each facility a probability of an interface incident in the next 7 days. It is an integration operations score, not a clinical prediction.",
+        "The holdout line reports precision and recall on the most recent labelled days against the base rate, so the team knows how far to trust the ranking.",
+        "Anomaly detection flags unusual unmapped code rates per facility, and the forecast projects accepted bundles for the next 14 days."
+      ],
+      "show": [
+        "Holdout metrics",
+        "Risk by facility",
+        "Accepted-bundle forecast",
+        "Unmapped code anomalies"
+      ],
+      "call_out": "Evaluated ML that runs where the feed data lives",
+      "transition": {
+        "next_tab": "planning",
+        "line": "Are conformance checks keeping pace with the feeds?"
+      }
+    },
+    {
+      "id": "planning",
+      "persona": {
+        "name": "Napat Srisuk",
+        "role": "Head of Exchange Integration (fictional)",
+        "avatar": ""
+      },
+      "talking_points": [
+        "Conformance check compliance, FHIR profile conformance and pending profile reviews show where onboarding work is still open.",
+        "The scatter plots check compliance against interface incidents per facility; it shows an association in synthetic data, not a cause.",
+        "The action memo drafts three interface actions for the week from the KPI, facility, issue-type and risk tables only, for a person to review."
+      ],
+      "show": [
+        "Check compliance and profile conformance",
+        "Check compliance vs incidents",
+        "Action memo"
+      ],
+      "call_out": "A grounded draft, with a person deciding",
+      "transition": {
+        "next_tab": "live",
+        "line": "What happens when a slow bundle batch arrives right now?"
+      }
+    },
+    {
+      "id": "live",
+      "persona": {
+        "name": "Pimchanok Wongsa",
+        "role": "Interface Operations Lead (fictional)",
+        "avatar": ""
+      },
+      "talking_points": [
+        "New bundle delivery events land in RAW.LIVE_BUNDLES, from the Snowflake simulator or from S3 PutObject through Snowpipe. They carry facility-level metrics only.",
+        "The alert logs each ALERT event with a playbook hint and the facility risk band, then emails the exchange integration team."
+      ],
+      "show": [
+        "Events loaded and lag",
+        "Latest bundle delivery events",
+        "Alert log"
+      ],
+      "call_out": "From a late batch to a follow-up in one platform",
+      "transition": {
+        "next_tab": "ask-ai",
+        "line": "Now ask the exchange data directly."
+      }
+    },
+    {
+      "id": "ask-ai",
+      "persona": {
+        "name": "Napat Srisuk",
+        "role": "Head of Exchange Integration (fictional)",
+        "avatar": ""
+      },
+      "talking_points": [
+        "The Cortex Agent answers metric questions through Cortex Analyst over the semantic view, and procedure questions through Cortex Search over 14 synthetic interface playbooks.",
+        "Every answer shows the generated SQL and the playbook IDs it cited."
+      ],
+      "show": [
+        "Ask a sample question",
+        "Generated SQL",
+        "Playbook citations"
+      ],
+      "call_out": "Answers the integration team can check",
+      "transition": {
+        "next_tab": "architecture",
+        "line": "Here is how it is built."
+      }
+    },
+    {
+      "id": "architecture",
+      "persona": {
+        "name": "Pimchanok Wongsa",
+        "role": "Interface Operations Lead (fictional)",
+        "avatar": ""
+      },
+      "talking_points": [
+        "One core, two builds: Snowflake only, or AWS + Snowflake with S3, Bedrock, QuickSight and Amazon Q.",
+        "The exchange, facilities and people are fictional and the data is synthetic; a fresh clone rebuilds the same figures."
+      ],
+      "show": [
+        "Both architecture diagrams"
+      ],
+      "call_out": "One governed core with an optional AWS layer",
+      "transition": {
+        "next_tab": "",
+        "line": "Questions?"
+      }
+    }
+  ]
+}
